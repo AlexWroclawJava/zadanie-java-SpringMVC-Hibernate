@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+        <style type="text/css">
+
+            .header {
+                background: darkslateblue;
+                height: 100px;
+                color: black;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+            }
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                width: 600px;
+                margin: auto;
+            }
+            .content {
+                background: antiquewhite;
+                height: 100%;
+                color: black;
+                list-style-type: georgian;
+            }
+
+        </style>
+
+    </head>
+
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <div>
+            <h2>Edycja Pracownika</h2>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <a style="color: black" href="../index.html" th:href="@{/}">Powrót do listy głównej</a> <br/><br/>
+</div>
+
+        <div>
+            <form  method="post" th:action="'/edycja/'+${pracownik.id}" th:object="${pracownik}">
+                <input type="hidden" th:field="*{id}"/>
+                <input type="text" th:field="*{imie}" />
+                <input type="text" th:field="*{nazwisko}"/>
+                <input type="submit" class="btn btn-success" value="Zapisz zmiany" />
+            </form>
+        </div>
+
+</body>
+</html>

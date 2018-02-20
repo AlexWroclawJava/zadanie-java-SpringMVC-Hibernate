@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+        <style type="text/css">
+
+                .header {
+                        background: darkslateblue;
+                        height: 100px;
+                        color: black;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+                }
+                .header-content {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        width: 600px;
+                        margin: auto;
+                }
+                .content {
+                        background: antiquewhite;
+                        height: 300%;
+                        color: black;
+                        list-style-type: georgian;
+                }
+                .content2 {
+                        background: royalblue;
+                        height: 100px;
+                        color: black;
+                        list-style-type: georgian;
+                }
+                .links a {
+                        background: white;
+                        padding: 10px;
+                        color: dodgerblue;
+                        display: flex;
+                        justify-content: space-evenly;
+                }
+
+        </style>
+
+</head>
+<body>
+
+<div class="header">
+        <div class="header-content">
+                <div>
+                        <h1>Informacje o Pracowniku</h1>
+                </div>
+        </div>
+</div>
+
+<div class="content2">
+        <a style="color: black" href="../index.html" th:href="@{/}">Powrót do listy głównej</a> <br/>
+</div>
+
+<div class="media">
+
+        <div class="media-body">
+
+                <h5 color="red" th:class="mt-0"><h3 th:text="${p.imie} + ' ' + ${p.nazwisko}"></h3></h5><br/>
+
+                <div class="media mt-3">
+                                <img th:src="${'/'} + ${p.imie} + '.jpg'" />
+                        <div class="media-body">
+                                <h3 class="mb-0" th:text="${p}"/>
+                        </div>
+                </div>
+        </div>
+</div>
+
+</body>
+</html>
