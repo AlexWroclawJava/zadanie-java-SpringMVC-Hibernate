@@ -52,12 +52,17 @@
 
     <h2 th:text="${pageInformacje}" /> <br/>
 
+    <!--<h5><a th:href="'/nowy/'">Dodaj nowego pracownika</a></h5><br/>-->
+    <a th:href="@{/dodaj}">Dodaj nowego pracownika</a>
+
+
 <ul>
     <li th:each="pracownik: ${pracownicy}" >
         <a href="/info/1" th:href="'/info/' + ${pracownik.id}" th:text="${pracownik.imie} + ' ' + ${pracownik.nazwisko}">
         przykladowa osoba
         </a>
         <a th:href="'/edycja/' + ${pracownik.id}">(Edytuj)</a>
+
     </li>
 </ul>
 

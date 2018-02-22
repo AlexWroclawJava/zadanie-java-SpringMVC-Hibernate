@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.TypedQuery;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -32,6 +33,29 @@ public class PracownikController {
         return "index";
     }
 
+
+    @GetMapping("/dodaj")
+    public String dodaj(Model model) {
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        model.addAttribute("pracownik", new Pracownik());
+        return "nowy";
+    }
+
+    @PostMapping("/dodaj")
+    public String dodaj2(Pracownik pracownik, @PathVariable Long id)  {
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(pracownik);
+        entityManager.getTransaction().commit();
+
+        return "index";
+    }
+
+
     @GetMapping("/info/{id}")
     public String info(@PathVariable Long id, Model model) {
 
@@ -41,7 +65,6 @@ public class PracownikController {
         model.addAttribute("pracownik", pracownik);
         model.addAttribute("p", pracownik);
         return "informacje";
-
     }
 
     @GetMapping("/edycja/{id}")
