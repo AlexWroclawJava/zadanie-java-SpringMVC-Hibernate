@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
-public class PracownikController {
+public class PracownikController { 
 
     @Autowired
     @PersistenceUnit
