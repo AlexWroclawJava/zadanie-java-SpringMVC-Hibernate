@@ -53,8 +53,7 @@
     <h2 th:text="${pageInformacje}" /> <br/>
 
     <!--<h5><a th:href="'/nowy/'">Dodaj nowego pracownika</a></h5><br/>-->
-    <a th:href="@{/dodaj}">Dodaj nowego pracownika</a>
-
+    <a style="color: black" th:href="@{/dodaj}">Dodaj nowego pracownika</a><br/><br/>
 
 <ul>
     <li th:each="pracownik: ${pracownicy}" >

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,7 +34,6 @@ public class PracownikController {
         return "index";
     }
 
-
     @GetMapping("/dodaj")
     public String dodaj(Model model) {
 
@@ -44,7 +44,7 @@ public class PracownikController {
     }
 
     @PostMapping("/dodaj")
-    public String dodaj2(Pracownik pracownik, @PathVariable Long id)  {
+    public String dodaj2(Pracownik pracownik)  {
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -52,7 +52,7 @@ public class PracownikController {
         entityManager.persist(pracownik);
         entityManager.getTransaction().commit();
 
-        return "index";
+        return "success";
     }
 
 
