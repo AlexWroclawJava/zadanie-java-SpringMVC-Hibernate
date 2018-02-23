@@ -53,6 +53,7 @@ public class PracownikController {
         entityManager.getTransaction().commit();
 
         return "success";
+        
 
     }
 
